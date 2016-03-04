@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:YOPILLZ.Styles">
+    <Style x:Key="InventoryPageTextBlock" TargetType="TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    <Style x:Key="InventoryPageTextBox" TargetType="TextBox">
+        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="Margin" Value="5 5 5 5"></Setter>
+    </Style>
+    <Style x:Key="InventoryComboBox" TargetType="ComboBox">
+        <Setter Property="Width" Value="Auto"></Setter>
+        <Setter Property="Margin" Value="5 5 5 5"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+    </Style>
+    <Style x:Key="InventoryPageCalendarDatePicker" TargetType="CalendarDatePicker">
+        <Setter Property="Margin" Value="5 5 5 5"></Setter>
+        <Setter Property="DateFormat" Value="{}{day.integer} {month.full} {year.full}"></Setter>
+    </Style>
+</ResourceDictionary>

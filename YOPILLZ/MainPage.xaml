@@ -1,0 +1,87 @@
+﻿<Page
+    x:Class="YOPILLZ.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:YOPILLZ"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <SplitView 
+            Name="mySplitView"
+            DisplayMode="CompactOverlay"
+            CompactPaneLength="50"
+            OpenPaneLength="200"
+            HorizontalAlignment="Left"
+            IsPaneOpen="False"
+            Grid.Row="1"
+            PaneClosed="mySplitView_PaneClosed"
+            IsTabStop="False">
+            <SplitView.Pane>
+                <ListBox
+                SelectionMode="Single"
+                Name="myListBox"
+                SelectionChanged="myListBox_SelectionChanged"
+                Background="Lavender"
+                    IsTabStop="False">
+                    <ListBoxItem>
+                        <StackPanel>
+                            <Button x:Name="Hamburger"
+                FontFamily="Segoe MDL2 Assets" 
+                Content="&#xE700;"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                    Click="Hamburger_Click"
+                    Width="50"
+                       FontWeight="Bold" PointerPressed="Hamburger_Click"></Button>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock 
+                                FontFamily="Segoe MDL2 Assets" 
+                                Text="&#xE71E;" 
+                                />
+                            <TextBlock Visibility="Collapsed" Name="OrderText">Orders</TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock 
+                                FontFamily="Segoe MDL2 Assets" 
+                                Text="&#xE71E;" 
+                                />
+                            <TextBlock Visibility="Collapsed" Name="SearchText">Search</TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock 
+                                FontFamily="Segoe MDL2 Assets" 
+                                Text="&#xE710;" 
+                                />
+                            <TextBlock Visibility="Collapsed" Name="InventoryText">Search</TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Frame x:Name="frame"
+                       Navigating="OnNavigatingToPage"
+                       Navigated="OnNavigatedToPage"
+                       HorizontalAlignment="Stretch">
+                    <Frame.ContentTransitions>
+                        <TransitionCollection>
+                            <NavigationThemeTransition>
+                                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                                    <EntranceNavigationTransitionInfo/>
+                                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                            </NavigationThemeTransition>
+                        </TransitionCollection>
+                    </Frame.ContentTransitions>
+                </Frame>
+            </SplitView.Content>
+        </SplitView>
+    </Grid>
+</Page>

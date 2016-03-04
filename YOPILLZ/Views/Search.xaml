@@ -1,0 +1,79 @@
+﻿<Page
+    x:Class="YOPILLZ.Views.Search"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:YOPILLZ.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:usercontrols="using:YOPILLZ.UserControls"
+    mc:Ignorable="d">
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="3*"></RowDefinition>
+            </Grid.RowDefinitions>
+                <TextBox Height="50" 
+                 GotFocus="tb_medicine_GotFocus"
+                 x:Name="tb_medicine"
+                     LostFocus="tb_medicine_LostFocus"
+                     Style="{StaticResource SearchPageSearchBar}"
+                         TextChanged="tb_medicine_TextChanged"
+                 />
+                <ListView x:Name="listbox" 
+                      ItemsSource="{x:Bind medicineList}" 
+                      Grid.Row="1"
+                      Visibility="Collapsed"
+                      Height="300"
+                      VerticalAlignment="Top"
+                      SelectionChanged="listbox_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid Grid.Row="1" 
+              Visibility="Visible"
+              Name="MyGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="4*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                
+                    <StackPanel
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Grid.Row="0"
+                        >
+                        <Button Style="{StaticResource SearchPageButton}" Content="Add to Order" Click="AddtoOrder_Button_Click"></Button>
+                        <Button Style="{StaticResource SearchPageButton}" Content="Drug Details" x:Name="drugDetailButton" Click="drugDetailButton_Click"></Button>
+                        <Button Style="{StaticResource SearchPageButton}" Content="Procure"></Button>
+                        <Button Style="{StaticResource SearchPageButton}" Content="Find Alternative"></Button>
+                    </StackPanel>
+                    <ListBox Grid.Row="1"
+                              x:Name="OrderList"
+                              SelectionChanged="OrderListItemSelected">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel
+                                    Orientation="Horizontal">
+                                    <TextBlock Text="{Binding OrderId}"></TextBlock>
+                                    <TextBlock Text="{Binding CustomerName}"></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+            </Grid>
+        </Grid>
+        </Grid>
+    </Grid>
+</Page>
