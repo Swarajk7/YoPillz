@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="QuickSearchAndSelect.SearchAndSelectView"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+mc:Ignorable="d">
+    <StackPanel Width="150">
+        <TextBlock Text="{Binding Path=SelectedMedicine.Name}"/>
+        <TextBox x:Name="Filter" Text="{Binding Path=Filter, UpdateSourceTrigger=PropertyChanged}"/>
+        <ListBox Height="150" x:Name="Medicines" ItemsSource="{Binding Path=SearchMedicineResults}" SelectedItem="{Binding Path=SelectedMedicine}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Path=Name}"/>
+                        <TextBlock Text="{Binding Path=MedicineCode}" Margin="30,0,0,0"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
+
+</UserControl>
