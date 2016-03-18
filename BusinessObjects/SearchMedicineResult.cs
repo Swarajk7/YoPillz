@@ -2,7 +2,7 @@
 {
     public class SearchMedicineResult
     {
-        public string Name
+        public string MedicineName
         {
             get;
             set;

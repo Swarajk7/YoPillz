@@ -111,9 +111,15 @@
     <Compile Include="MedicineDA.cs" />
     <Compile Include="OrderDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quries\MedicineQuery.cs" />
+    <Compile Include="SqlliteManager.cs" />
     <EmbeddedResource Include="Properties\DAL.rd.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessObjects\BusinessObjects.csproj">
+      <Project>{b8b1a569-b76d-49a2-8de3-c4f5033414e3}</Project>
+      <Name>BusinessObjects</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SyncLayer\SyncLayer.csproj">
       <Project>{19578882-d6cc-43ce-84c7-f3df6117f2d1}</Project>
       <Name>SyncLayer</Name>
