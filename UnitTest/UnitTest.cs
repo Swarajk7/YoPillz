@@ -4,6 +4,7 @@ using SyncLayer;
 using SyncLayer.DataModel;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using DAL.Quries;
 
 namespace UnitTest
 {
@@ -11,18 +12,16 @@ namespace UnitTest
     public class UnitTest1
     {
         [TestMethod]
-        public async Task PullTest()
+        public void MedicineQueryTest()
         {
-            Sync sync = await Sync.Create();
-            SyncTable<AilmentCategory> syncTable = new SyncTable<AilmentCategory>(sync);
-            //await syncTable.InsertAsync(new AilmentCategory { AilmentCategoryId = 1, AilmentCategoryName = "abc", StoreId = "1" });
-            await syncTable.PullAsync(syncTable.ToString(),syncTable.GetQuery());
-            List<AilmentCategory> readList = await syncTable.ReadAsync();
-            Assert.AreNotEqual(0, readList.Count);
-            foreach(AilmentCategory ac in readList)
+            Assert.AreEqual("Select MedicineName,MedicineCode from Medicine Where MedicineName Like 'calp%'", MedicineQuery.GetQuery(MedicineQuery.QueryType.StartsWithMedicineName, "calp"));
+            Assert.AreEqual("Select * from Medicine Where MedicineCode = 'abcd'", MedicineQuery.GetQuery(MedicineQuery.QueryType.WithMedicineCode, "abcd"));
+            try
             {
-                Assert.AreEqual("1", ac.StoreId);
+                Assert.AreEqual("", MedicineQuery.GetQuery(MedicineQuery.QueryType.StartsWithMedicineName, null));
+                Assert.Fail();
             }
+            catch { }
         }
     }
 }

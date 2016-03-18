@@ -124,6 +124,10 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{044af0f3-19e9-44c0-b64e-503e265f62b5}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SyncLayer\SyncLayer.csproj">
       <Project>{19578882-d6cc-43ce-84c7-f3df6117f2d1}</Project>
       <Name>SyncLayer</Name>

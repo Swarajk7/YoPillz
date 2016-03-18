@@ -1,6 +1,5 @@
 ﻿{
   "dependencies": {
-    "Microsoft.Azure.Mobile.Client.SQLiteStore": "2.0.1",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0"
   },
   "frameworks": {

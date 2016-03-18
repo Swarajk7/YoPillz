@@ -33,11 +33,11 @@ namespace YOPILLZ.Model
 
             var myProducts = new ObservableCollection<SearchMedicineResult>();
 
-            myProducts.Add(new SearchMedicineResult() { Name = "calpol 125", MedicineCode = "Calpol-125MG" });
-            myProducts.Add(new SearchMedicineResult() { Name = "Crocin 100", MedicineCode = "Crocin-100MG" });
-            myProducts.Add(new SearchMedicineResult() { Name = "Crocin 250", MedicineCode = "Crocin-250MG" });
-            myProducts.Add(new SearchMedicineResult() { Name = "DOLO 250", MedicineCode = "DOLO-250MG" });
-            myProducts.Add(new SearchMedicineResult() { Name = "DOLO 500", MedicineCode = "DOLO-500MG" });
+            myProducts.Add(new SearchMedicineResult() { MedicineName = "calpol 125", MedicineCode = "Calpol-125MG" });
+            myProducts.Add(new SearchMedicineResult() { MedicineName = "Crocin 100", MedicineCode = "Crocin-100MG" });
+            myProducts.Add(new SearchMedicineResult() { MedicineName = "Crocin 250", MedicineCode = "Crocin-250MG" });
+            myProducts.Add(new SearchMedicineResult() { MedicineName = "DOLO 250", MedicineCode = "DOLO-250MG" });
+            myProducts.Add(new SearchMedicineResult() { MedicineName = "DOLO 500", MedicineCode = "DOLO-500MG" });
           
 
             this.medicines = myProducts;
@@ -97,7 +97,7 @@ namespace YOPILLZ.Model
                 return true;
             }
 
-            if (medicine.Name.ToUpperInvariant().Contains(this.Filter))
+            if (medicine.MedicineName.ToUpperInvariant().Contains(this.Filter))
             {
                 return true;
             }

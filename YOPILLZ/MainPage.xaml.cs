@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using SyncLayer.SyncTable;
 using YOPILLZ.Views;
+using DAL;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace YOPILLZ
@@ -29,13 +30,10 @@ namespace YOPILLZ
         {
             this.InitializeComponent();
         }
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Sync sync = await Sync.Create();
-            MedicineSyncTable ailmentTable = new MedicineSyncTable(sync);
-            await ailmentTable.PullWithStoreIdAsync("1");
-            //await ailmentTable.PullAsync();
-            List<Medicine> list = await ailmentTable.ReadAsync();
+            MedicineDA medicineDa = new MedicineDA();
+            medicineDa.SearchMedicine("calp");
         }
         private void myListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

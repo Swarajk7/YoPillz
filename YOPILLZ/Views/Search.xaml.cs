@@ -39,10 +39,10 @@ namespace YOPILLZ.Views
         }
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            medicineDA = await MedicineDA.Create();
-            Sync sync = await Sync.Create();
-            OrderHeaderSyncTable ohstable = new OrderHeaderSyncTable(sync);
-            await ohstable.PullWithStoreIdAsync("1");
+            //medicineDA = await MedicineDA.Create();
+            //Sync sync = await Sync.Create();
+            //OrderHeaderSyncTable ohstable = new OrderHeaderSyncTable(sync);
+            //await ohstable.PullWithStoreIdAsync("1");
         }
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
@@ -92,8 +92,8 @@ namespace YOPILLZ.Views
         {
             if(tb_medicine.Text.Length > 2)
             {
-                medicineList = await medicineDA.ReadMedicineWithMedicineName(tb_medicine.Text);
-                listbox.ItemsSource = medicineList;
+                //medicineList = await medicineDA.ReadMedicineWithMedicineName(tb_medicine.Text);
+                //listbox.ItemsSource = medicineList;
             }
         }
 
