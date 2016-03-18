@@ -35,11 +35,6 @@ namespace YOPILLZ.Views
         }
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            //medicineCode = this.Tag as string;
-            //medicineDA = await MedicineDA.Create();
-            //medicine = await medicineDA.ReadMedicineWithMedicineCode(medicineCode);
-            //string medDet = medicine.MedicineName + ":: + MedcineCode: " + medicine.MedicineCode + ":: Composition: " + medicine.Composition;
-            //tb_medicineDetail.Text = medDet;
         }
         public override string ToString()
         {

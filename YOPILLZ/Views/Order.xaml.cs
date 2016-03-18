@@ -30,11 +30,7 @@ namespace YOPILLZ.Views
         }
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
-            OrderDA orderHeaderDA = await OrderDA.Create();
-            List<OrderHeader> orderList = await orderHeaderDA.GetOrders(true);
-            List<OrderHeader> orderList2 = await orderHeaderDA.GetOrders(false);
-            DeliveryData.Text = orderList.Count.ToString();
-            InStoreData.Text = orderList2.Count.ToString();
+            
         }
     }
 }
